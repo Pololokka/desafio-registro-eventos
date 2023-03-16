@@ -15,7 +15,7 @@ Registro para eventos e festas
 
 ### Home
 
-Página onde o usuário pode adicionar seus links
+Página onde o usuário pode fazer seu registro
 
 ## Sobre
 
