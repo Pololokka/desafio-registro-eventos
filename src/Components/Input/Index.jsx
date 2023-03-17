@@ -1,4 +1,4 @@
-const Input = ({ name, title, type, required, value, setState }) => {
+const Input = ({ name, title, type, required, register }) => {
   return (
     <>
       <label htmlFor={name} className="texto">
@@ -7,10 +7,8 @@ const Input = ({ name, title, type, required, value, setState }) => {
       <input
         className="texto input__geral"
         type={type}
-        name={name}
+        {...register({ name })}
         required={required}
-        value={value || ""}
-        onChange={console.log("setState")}
       />
     </>
   );
