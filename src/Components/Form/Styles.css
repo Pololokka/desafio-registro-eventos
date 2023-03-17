@@ -1,0 +1,17 @@
+.form__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.invite__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.invite__input--container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
