@@ -12,13 +12,7 @@ const Form = ({ handleSubmit, register, errors }) => {
           Nome Completo/Razão Social
         </label>
         <input
-          {...register("fullName", {
-            required: "Preencha este campo!",
-            minLength: {
-              value: 3,
-              message: "Preencha corretamente este campo!",
-            },
-          })}
+          {...register("fullName")}
           type="text"
           className="texto input__geral"
         />
@@ -46,9 +40,7 @@ const Form = ({ handleSubmit, register, errors }) => {
           <div className="invite__input--container">
             <span className="texto">De</span>
             <input
-              {...register("invitedPplMin", {
-                required: "Preencha o campo de mínimo de pessoas!",
-              })}
+              {...register("invitedPplMin")}
               type="number"
               min={0}
               className="texto input__geral"
@@ -56,9 +48,7 @@ const Form = ({ handleSubmit, register, errors }) => {
 
             <span className="texto">A</span>
             <input
-              {...register("invitedPplMax", {
-                required: "Preencha o campo de máximo de pessoas!",
-              })}
+              {...register("invitedPplMax")}
               type="number"
               min={0}
               className="texto input__geral"
@@ -72,13 +62,7 @@ const Form = ({ handleSubmit, register, errors }) => {
           E-mail de Contato
         </label>
         <input
-          {...register("email", {
-            required: "Preencha este campo!",
-            minLength: {
-              value: 3,
-              message: "Preencha corretamente este campo!",
-            },
-          })}
+          {...register("email")}
           type="text"
           className="texto input__geral"
         />
@@ -88,25 +72,17 @@ const Form = ({ handleSubmit, register, errors }) => {
           CPF/CNPJ
         </label>
         <input
-          {...register("cpf", {
-            required: "Preencha este campo!",
-            minLength: {
-              value: 10,
-              message: "Preencha corretamente este campo!",
-            },
-          })}
-          type="text"
+          {...register("cpf")}
+          type="number"
           className="texto input__geral"
         />
         <p className="texto">{errors.cpf?.message}</p>
 
         <label htmlFor="theme" className="texto texto-hover">
-          CPF/CNPJ
+          Tema da Festa
         </label>
         <input
-          {...register("theme", {
-            required: "Preencha este campo!",
-          })}
+          {...register("theme")}
           type="text"
           className="texto input__geral"
         />
@@ -116,9 +92,7 @@ const Form = ({ handleSubmit, register, errors }) => {
           Idade do Aniversariante
         </label>
         <input
-          {...register("bdayAge", {
-            required: "Preencha este campo!",
-          })}
+          {...register("bdayAge")}
           type="number"
           className="texto input__geral"
           min={0}
@@ -129,9 +103,7 @@ const Form = ({ handleSubmit, register, errors }) => {
           Gênero do Aniversariante
         </label>
         <input
-          {...register("bdayGender", {
-            required: "Preencha este campo!",
-          })}
+          {...register("bdayGender")}
           type="text"
           className="texto input__geral"
         />
