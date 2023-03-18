@@ -28,6 +28,11 @@ const schema = yup.object().shape({
     .required("Preencha este campo!"),
   cpf: yup
     .number()
+    .test(
+      "len",
+      "Preencha corretamente este campo!",
+      (val) => val.toString().length >= 11
+    )
     .typeError("Preencha corretamente este campo!")
     .required("Preencha este campo!"),
   theme: yup.string().required("Preencha este campo!"),

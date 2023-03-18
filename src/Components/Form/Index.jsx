@@ -1,5 +1,7 @@
 import "./Styles.css";
 
+import Input from "../Input/Index";
+
 const Form = ({ handleSubmit, register, errors }) => {
   return (
     <div className="card__geral">
@@ -8,15 +10,13 @@ const Form = ({ handleSubmit, register, errors }) => {
         className="form__container"
         onSubmit={handleSubmit((data) => console.log(data))}
       >
-        <label htmlFor="fullName" className="texto texto-hover">
-          Nome Completo/Razão Social
-        </label>
-        <input
-          {...register("fullName")}
+        <Input
+          name="fullName"
+          title="Nome Completo/Razão Social"
           type="text"
-          className="texto input__geral"
+          register={register}
+          errors={errors}
         />
-        <p className="texto">{errors.fullName?.message}</p>
 
         <label htmlFor="eventType" className="texto texto-hover">
           Tipo de Evento
@@ -44,6 +44,7 @@ const Form = ({ handleSubmit, register, errors }) => {
               type="number"
               min={0}
               className="texto input__geral"
+              onWheel={(e) => e.target.blur()}
             />
 
             <span className="texto">A</span>
@@ -52,62 +53,52 @@ const Form = ({ handleSubmit, register, errors }) => {
               type="number"
               min={0}
               className="texto input__geral"
+              onWheel={(e) => e.target.blur()}
             />
           </div>
           <p className="texto">{errors.invitedPplMin?.message}</p>
           <p className="texto">{errors.invitedPplMax?.message}</p>
         </div>
 
-        <label htmlFor="eventType" className="texto texto-hover">
-          E-mail de Contato
-        </label>
-        <input
-          {...register("email")}
+        <Input
+          name="email"
+          title="E-mail de Contato"
           type="text"
-          className="texto input__geral"
+          register={register}
+          errors={errors}
         />
-        <p className="texto">{errors.email?.message}</p>
 
-        <label htmlFor="cpf" className="texto texto-hover">
-          CPF/CNPJ
-        </label>
-        <input
-          {...register("cpf")}
+        <Input
+          name="cpf"
+          title="CPF/CNPJ"
           type="number"
-          className="texto input__geral"
+          register={register}
+          errors={errors}
         />
-        <p className="texto">{errors.cpf?.message}</p>
 
-        <label htmlFor="theme" className="texto texto-hover">
-          Tema da Festa
-        </label>
-        <input
-          {...register("theme")}
+        <Input
+          name="theme"
+          title="Tema da Festa"
           type="text"
-          className="texto input__geral"
+          register={register}
+          errors={errors}
         />
-        <p className="texto">{errors.theme?.message}</p>
 
-        <label htmlFor="bdayAge" className="texto texto-hover">
-          Idade do Aniversariante
-        </label>
-        <input
-          {...register("bdayAge")}
+        <Input
+          name="bdayAge"
+          title="Idade do Aniversariante"
           type="number"
-          className="texto input__geral"
-          min={0}
+          register={register}
+          errors={errors}
         />
-        <p className="texto">{errors.bdayAge?.message}</p>
 
-        <label htmlFor="bdayGender" className="texto texto-hover">
-          Gênero do Aniversariante
-        </label>
-        <input
-          {...register("bdayGender")}
+        <Input
+          name="bdayGender"
+          title="Gênero do Aniversariante"
           type="text"
-          className="texto input__geral"
+          register={register}
+          errors={errors}
         />
-        <p className="texto">{errors.bdayGender?.message}</p>
 
         <label htmlFor="foundOut" className="texto texto-hover">
           Como você conheceu a Salão 96?

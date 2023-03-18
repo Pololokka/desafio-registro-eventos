@@ -1,4 +1,4 @@
-const Input = ({ name, title, type, required, register }) => {
+const Input = ({ name, title, type, register, errors }) => {
   return (
     <>
       <label htmlFor={name} className="texto">
@@ -7,9 +7,10 @@ const Input = ({ name, title, type, required, register }) => {
       <input
         className="texto input__geral"
         type={type}
-        {...register({ name })}
-        required={required}
+        {...register(`${name}`)}
+        onWheel={(e) => e.target.blur()}
       />
+      <p className="texto">{errors[name]?.message}</p>
     </>
   );
 };
