@@ -54,7 +54,7 @@ const Form = ({ handleSubmit, register, unregister, errors }) => {
           <option value="Outro">Outro</option>
         </select>
 
-        {watchType ? (
+        {watchType && (
           <Input
             name="typeOther"
             title="Especifique o Tipo"
@@ -62,7 +62,7 @@ const Form = ({ handleSubmit, register, unregister, errors }) => {
             register={register}
             errors={errors}
           />
-        ) : null}
+        )}
 
         <div className="invite__container">
           <label htmlFor="invitedPpl" className="texto texto-hover">
@@ -146,7 +146,7 @@ const Form = ({ handleSubmit, register, unregister, errors }) => {
           <option value="Outro">Outro</option>
         </select>
 
-        {watchFound ? (
+        {watchFound && (
           <Input
             name="foundOther"
             title="Especifique Como Nos Encontrou!"
@@ -154,7 +154,7 @@ const Form = ({ handleSubmit, register, unregister, errors }) => {
             register={register}
             errors={errors}
           />
-        ) : null}
+        )}
 
         <input type="submit" value="Enviar" className="texto btn__geral" />
       </form>
