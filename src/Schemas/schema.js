@@ -35,9 +35,9 @@ export const schema = yup.object().shape({
     )
     .typeError("Preencha corretamente este campo!")
     .required("Preencha este campo!"),
-  theme: yup.string().required("Preencha este campo!"),
+  theme: yup.string(),
   bdayAge: yup
-    .number()
+    .string()
     .typeError("")
     .when("eventType", {
       is: "Aniversário",
@@ -53,10 +53,9 @@ export const schema = yup.object().shape({
     then: (schema) => schema.required("Preencha este campo!"),
     otherwise: (schema) => schema.min(0),
   }),
-  foundOut: yup.string().required("Escolha uma opção!"),
+  foundOut: yup.string(),
   foundOther: yup.string().when("foundOut", {
     is: "Outro",
-    then: (schema) => schema.required("Preencha este campo!"),
-    otherwise: (schema) => schema.min(0),
+    then: (schema) => schema.min(0),
   }),
 });
