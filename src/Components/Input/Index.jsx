@@ -1,7 +1,7 @@
 const Input = ({ name, title, type, register, errors }) => {
   return (
     <>
-      <label htmlFor={name} className="texto">
+      <label htmlFor={name} className="texto texto-hover">
         {title}
       </label>
       <input

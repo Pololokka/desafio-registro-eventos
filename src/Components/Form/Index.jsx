@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const Form = ({ handleSubmit, register, unregister, errors }) => {
   const [watchType, setWatchType] = useState(false);
+  const [watchFound, setWatchFound] = useState(false);
 
   const handleSelectType = (event) => {
     if (event === "Outro") {
@@ -12,6 +13,14 @@ const Form = ({ handleSubmit, register, unregister, errors }) => {
       register("typeOther");
     } else setWatchType(false);
     unregister("typeOther");
+  };
+
+  const handleSelectFound = (event) => {
+    if (event === "Outro") {
+      setWatchFound(true);
+      register("foundOther");
+    } else setWatchFound(false);
+    unregister("foundOther");
   };
 
   return (
@@ -126,8 +135,9 @@ const Form = ({ handleSubmit, register, unregister, errors }) => {
           Como você conheceu a Salão 96?
         </label>
         <select
-          {...register("foundOut", { required: "Escolha uma opção!" })}
+          {...register("foundOut")}
           className="texto input__geral"
+          onClick={(event) => handleSelectFound(event.target.value)}
         >
           <option value="Recomendação">Recomendação</option>
           <option value="Facebook">Facebook</option>
@@ -135,6 +145,16 @@ const Form = ({ handleSubmit, register, unregister, errors }) => {
           <option value="Anúncio">Anúncio</option>
           <option value="Outro">Outro</option>
         </select>
+
+        {watchFound ? (
+          <Input
+            name="foundOther"
+            title="Especifique Como Nos Encontrou!"
+            type="text"
+            register={register}
+            errors={errors}
+          />
+        ) : null}
 
         <input type="submit" value="Enviar" className="texto btn__geral" />
       </form>
