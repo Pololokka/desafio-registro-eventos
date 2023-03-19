@@ -1,8 +1,19 @@
 import "./Styles.css";
 
 import Input from "../Input/Index";
+import { useState } from "react";
 
-const Form = ({ handleSubmit, register, errors }) => {
+const Form = ({ handleSubmit, register, unregister, errors }) => {
+  const [watchType, setWatchType] = useState(false);
+
+  const handleSelectType = (event) => {
+    if (event === "Outro") {
+      setWatchType(true);
+      register("typeOther");
+    } else setWatchType(false);
+    unregister("typeOther");
+  };
+
   return (
     <div className="card__geral">
       <h1 className="titulo titulo-hover">Placeholder</h1>
@@ -22,8 +33,9 @@ const Form = ({ handleSubmit, register, errors }) => {
           Tipo de Evento
         </label>
         <select
-          {...register("eventType", { required: "Escolha uma opção!" })}
+          {...register("eventType")}
           className="texto input__geral"
+          onClick={(event) => handleSelectType(event.target.value)}
         >
           <option value="Aniversário">Aniversário</option>
           <option value="Reunião de Empresa/Workshop">
@@ -32,6 +44,16 @@ const Form = ({ handleSubmit, register, errors }) => {
           <option value="Coffee and Meet">Coffee and Meet</option>
           <option value="Outro">Outro</option>
         </select>
+
+        {watchType ? (
+          <Input
+            name="typeOther"
+            title="Especifique o Tipo"
+            type="text"
+            register={register}
+            errors={errors}
+          />
+        ) : null}
 
         <div className="invite__container">
           <label htmlFor="invitedPpl" className="texto texto-hover">
