@@ -3,7 +3,7 @@ import "./Styles.css";
 import Input from "../Input/Index";
 import { useState } from "react";
 
-const Form = ({ handleSubmit, register, unregister, errors }) => {
+const Form = ({ handleSubmit, register, unregister, errors, handleInfo }) => {
   const [watchType, setWatchType] = useState(false);
   const [watchFound, setWatchFound] = useState(false);
 
@@ -28,7 +28,7 @@ const Form = ({ handleSubmit, register, unregister, errors }) => {
       <h1 className="titulo titulo-hover">Placeholder</h1>
       <form
         className="form__container"
-        onSubmit={handleSubmit((data) => console.log(data))}
+        onSubmit={handleSubmit((data) => handleInfo(data))}
       >
         <Input
           name="fullName"
