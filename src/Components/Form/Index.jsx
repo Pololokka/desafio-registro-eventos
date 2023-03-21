@@ -24,8 +24,8 @@ const Form = ({ handleSubmit, register, unregister, errors, handleInfo }) => {
   };
 
   return (
-    <div className="card__geral">
-      <h1 className="titulo titulo-hover">Placeholder</h1>
+    <div>
+      <h1 className="titulo titulo-hover">Preencha o Formulário Abaixo!</h1>
       <form
         className="form__container"
         onSubmit={handleSubmit((data) => handleInfo(data))}

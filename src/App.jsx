@@ -17,7 +17,11 @@ function App() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  let infoForm;
+  let infoForm = {
+    fullName: "nome",
+    eventType: "tipo",
+    typeOther: "outro",
+  };
 
   const handleInfo = (data) => {
     let cleaner = Object.keys(data)
@@ -29,8 +33,8 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div className="show">
+    <div className="App card__geral">
+      <div className="hide">
         <Form
           handleSubmit={handleSubmit}
           register={register}
@@ -39,7 +43,21 @@ function App() {
           handleInfo={handleInfo}
         />
       </div>
-      <div className="hide"></div>
+      <div className="show">
+        <h2 className="titulo titulo-hover">Obrigado!</h2>
+        <p className="subtitulo subtitulo-hover">
+          Sua solicitação já está sendo processada, e te contataremos em breve!
+        </p>
+        <div className="answer__grid">
+          {Object.keys(infoForm).map((key, index) => {
+            return (
+              <p key={index} className="texto">
+                {key}: {infoForm[key]}
+              </p>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }
