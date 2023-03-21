@@ -12,6 +12,7 @@ function App() {
     register,
     unregister,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -24,17 +25,21 @@ function App() {
       .reduce((value, atr) => ({ ...value, [atr]: data[atr] }), {});
     infoForm = cleaner;
     console.log(infoForm);
+    reset();
   };
 
   return (
     <div className="App">
-      <Form
-        handleSubmit={handleSubmit}
-        register={register}
-        unregister={unregister}
-        errors={errors}
-        handleInfo={handleInfo}
-      />
+      <div className="show">
+        <Form
+          handleSubmit={handleSubmit}
+          register={register}
+          unregister={unregister}
+          errors={errors}
+          handleInfo={handleInfo}
+        />
+      </div>
+      <div className="hide"></div>
     </div>
   );
 }
