@@ -1,8 +1,8 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![technology - React](https://img.shields.io/badge/React-orange) ![technology - JS](https://img.shields.io/badge/JavaScript-yellow)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![technology - React](https://img.shields.io/badge/React-orange) ![technology - JS](https://img.shields.io/badge/JavaScript-yellow) ![technology - YUP](https://img.shields.io/badge/YUP-green)
 
 # Registro Para Eventos e Festas
 
-Registro para eventos e festas
+Registro para eventos e festas utilizando useForm, e realizando validações com o YUP
 
 ## Tecnologias
 
@@ -10,12 +10,18 @@ Registro para eventos e festas
 - CSS
 - JavaScript
 - React
+- useForm
+- Yup
 
 ## Escopo do projeto
 
 ### Home
 
-Página onde o usuário pode fazer seu registro
+Página onde o usuário pode fazer seu pedido de festa, preenchendo informações tanto opicionais, quanto obrigatórias.
+
+### Agradecimento
+
+Página onde são exibidas as respostas do formulário, assim, como é possível voltar para a home e o responder novamente.
 
 ## Sobre
 
