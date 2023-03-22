@@ -43,7 +43,6 @@ export const schema = yup.object().shape({
       is: "Aniversário",
       then: (schema) =>
         schema
-          .integer()
           .typeError("Preencha corretamente este campo!")
           .required("Preencha este campo!"),
       otherwise: (schema) => schema.min(0),
@@ -59,3 +58,18 @@ export const schema = yup.object().shape({
     then: (schema) => schema.min(0),
   }),
 });
+
+export const schemaDictionary = {
+  fullName: "Nome Completo/Razão Social",
+  eventType: "Tipo de Evento",
+  typeOther: "Especificação do Tipo",
+  invitedPplMin: "Mínimo de Pessoas",
+  invitedPplMax: "Máximo de Pessoas",
+  email: "E-mail",
+  cpf: "CPF/CNPJ",
+  theme: "Tema",
+  bdayAge: "Idade",
+  bdayGender: "Gênero",
+  foundOut: "Como nos Encontrou",
+  foundOther: "Especificação De Como Nos Encontrou",
+};

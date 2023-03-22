@@ -5,7 +5,8 @@ import { useForm } from "react-hook-form";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { schema } from "./Schemas/schema";
+import { schema, schemaDictionary } from "./Schemas/schema";
+import { useState } from "react";
 
 function App() {
   const {
@@ -17,24 +18,48 @@ function App() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  let infoForm = {
-    fullName: "nome",
-    eventType: "tipo",
-    typeOther: "outro",
-  };
+
+  const [show, setShow] = useState({
+    divForm: "show",
+    divThanks: "hide",
+    showForm: true,
+  });
+
+  const [info, setInfo] = useState({
+    name: "",
+  });
 
   const handleInfo = (data) => {
     let cleaner = Object.keys(data)
       .filter((atr) => data[atr] !== "")
       .reduce((value, atr) => ({ ...value, [atr]: data[atr] }), {});
-    infoForm = cleaner;
-    console.log(infoForm);
+    setInfo(cleaner);
     reset();
+    handleShow();
+  };
+
+  const handleShow = () => {
+    console.log("foi");
+    if (show.showForm === true) {
+      setShow({
+        divForm: "hide",
+        divThanks: "show",
+        showForm: false,
+      });
+      console.log(show);
+    } else {
+      console.log("foi pro else");
+      setShow({
+        divForm: "show",
+        divThanks: "hide",
+        showForm: true,
+      });
+    }
   };
 
   return (
     <div className="App card__geral">
-      <div className="hide">
+      <div className={show.divForm}>
         <Form
           handleSubmit={handleSubmit}
           register={register}
@@ -43,20 +68,27 @@ function App() {
           handleInfo={handleInfo}
         />
       </div>
-      <div className="show">
+      <div className={show.divThanks}>
         <h2 className="titulo titulo-hover">Obrigado!</h2>
         <p className="subtitulo subtitulo-hover">
           Sua solicitação já está sendo processada, e te contataremos em breve!
         </p>
+        <p className="texto">Abaixo você pode verificar suas informações!</p>
         <div className="answer__grid">
-          {Object.keys(infoForm).map((key, index) => {
+          {Object.keys(info).map((key, index) => {
             return (
               <p key={index} className="texto">
-                {key}: {infoForm[key]}
+                {schemaDictionary[key]}: {info[key]}
               </p>
             );
           })}
         </div>
+        <input
+          type="submit"
+          value="Voltar"
+          className="texto btn__geral"
+          onClick={handleShow}
+        />
       </div>
     </div>
   );
